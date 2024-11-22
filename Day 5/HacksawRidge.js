@@ -37,4 +37,15 @@ websocket.addEventListener('error',(e)=>
  {
     console.log('there was an error from the client-side: ',e)
  })
+fetch('http:/localhost:8080',{method:'GET',mode:'cors'})
+.then((msg)=>
+{
+  console.log('GET request got a response')
+  console.log('it was: ',msg)
+  
+})
+.catch(()=>
+{
+  console.log('there was an error durin res')
+})
 
