@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat app Sign-up : Create your account</title>
+    <link href="/stylesForSignup.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/SIgn-up favicon.png">
+    <script defer src="/userValidation.js"></script>
+</head>
+<body>
+    <div class="horizontally-padded-container">
+        <div class="vertically-padded-container">
+            <div class="signup-flex">
+                <div class="header-container">
+                    <h6 class="header">Create your chat Account</h6>
+                </div>
+                <div>
+                    <form id="form" action="/users/sign-up" method="post" novalidate>
+                        <div class="credentials-container">
+                            <div class="email">
+                                <label class="credential-label" for="email">Email</label>
+                                <input class="credential-input" id="email" name="email"  type="email" placeholder="yourname@email.com" required>
+                                <p class="error-popup">Invalid Email</p>
+                            </div>
+                            <div class="username">
+                                <label class="credential-label" for="username">Username</label>
+                                <input class="credential-input" id="username" name="username" type="text" placeholder="not exceeding 30 characters" required>
+                                <p class="error-popup">Invalid username</p>
+                            </div>
+                            <div class="password">
+                                <label class="credential-label" for="password">Password</label>
+                                <input class="credential-input" id="password" name="password" type="password" placeholder="min of 8 alphanumeric characters with case-distinction" required>
+                                <p class="error-popup">Incorrect password format</p>
+                            </div>
+                            <div class="signup-btn-container">
+                                <button class="signup-btn" type="submit">Sign Up</button>
+                            </div>
+                            <div class="tos">
+                                <button id="tos-checkbox" type="button">
+                                    <!-- <img aria-label="check for terms of service" src="/assets/images/Check_Circle.svg">--></button>
+                                <label id="tos-text">I have read and agree to the <a href="https://discord.com/terms">Terms of Service</a> and <a href="https://discord.com/privacy">Privacy Policy.</a></label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="post-action-container">
+                    <div class="login-redirect-container">
+                        <div class="login-redirect">
+                            <h3><span>Already have an account? <a href="https://discord.com/register">Sign in</a></span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
