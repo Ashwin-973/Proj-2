@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat app Login : Welcome Back</title>
+    <link  href="/stylesForLogin.css" rel="stylesheet">
+    <script defer src="/loginHandler.js"></script>
+</head>
+<body>
+    <form id="form" action="/users/login" method="post">
+        <label for="email/username">Email</label>
+        <input type="email" name="email/username" id="email/username">
+        <label for="password">Password</label> 
+        <input type="password" name="password" id="password">
+        <button type="submit">Login</button>
+        <h3><span>New User? <a href="http://localhost:8080/users/sign-up">Sign-Up</a></span></h3>
+    </form>
+</body>
+</html>
