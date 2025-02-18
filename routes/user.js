@@ -2,11 +2,13 @@ const express=require('express')
 const router=express.Router()
 const {handlingUser}=require('../controllers/user')
 const {loginController}=require('../controllers/auth')
+
 router.get('/',(req,res)=>
     {
         res.send('Welcome to users endpoint')
     })
 
+//! move authetication routes to authRoute.js
 router.get('/sign-up',(req,res)=>
 {
     res.render('signUP')
