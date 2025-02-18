@@ -3,8 +3,10 @@ Login credential validation
 Token generation/verification
 Session management
 Login attempts tracking
-Password comparison logic*/
+Password comparison logic */
+
 const{findUser}=require('../models/user')
+const {generateAccessToken}=require('../utils/jwtService.js')
 const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordPattern=/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 
@@ -42,11 +44,27 @@ const loginController=(req,res)=>
         {
             if(!err && user)
             {
-                // call a JWT token provider function and pass JWT either through headers or store in local/session storage through cookies
+                // **call a JWT token provider function and pass JWT either through headers or store in local/session storage through cookies
+                let tempToken=generateAccessToken(user)
+                console.log("Both Tokens : ",tempToken)
+                res.cookie('jwt',tempToken[0],{
+                    httpOnly:true,
+                    secure:process.env.NODE_ENV === 'production',
+                    sameSite:'strict',
+                    maxAge:3600000,
+                    credentials:true
+                }).cookie('refresh_token',tempToken[1],{
+                    httpOnly:true,
+                    secure:process.env.NODE_ENV === 'production',
+                    sameSite:'strict',
+                    maxAge:3600000,
+                    credentials:true
+                })
                 return res.status(200).json({
                     status:"success",
                     code:"AUTH_VALID_CREDENTIALS",
                     message:"User Logged In",
+                    data:tempToken,
                     details:{
                         timestamp:new Date().toISOString(),
                         path:"/users/login",
