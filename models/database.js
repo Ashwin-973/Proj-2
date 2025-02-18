@@ -1,6 +1,5 @@
 const {Pool}=require('pg')
 const dotenv=require('dotenv').config({path:"C:\\Users\\Ashwi\\Documents\\Web Development\\WebDEV\\Proj2\\.env"})
-// console.log(dotenv)
 const {DATABASE_USER,DATABASE_HOST,DATABASE_PORT,DATABASE_PASSWORD,DATABASE_NAME}=process.env
 let pool=new Pool({
     user:DATABASE_USER,
