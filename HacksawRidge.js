@@ -29,8 +29,10 @@ const exeOnClick = (u) => {
   });
 };
 users.forEach(exeOnClick);
+
+
 //instatiating a websocket connection between browser API and server side web socket
-var io = io("ws://localhost:8080");
+/*var io = io("ws://localhost:8080");
 
 console.log("connection open");
 function sendMessage(e) 
@@ -76,3 +78,4 @@ io.on("message", (messageObj) => {
 io.on("error", (e) => {
   console.log("there was an error from the client-side: ", e);
 });
+*/
